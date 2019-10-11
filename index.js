@@ -14,10 +14,10 @@ const DATE = `${date.getDate()}:${date.getMonth()+1}-${date.getHours()}:${date.g
  * @param {*} f what function to test
  * @param {*} t test function on how to test 
  */
-const testing = async (r,m,f,t)=>{
+const testing = async (m,f,t)=>{
   const split = m.filename.split('/')
   const name = split[split.length-1].slice(0,-3)
-  if(isTest(r,m)){
+  if(isTest(m)){
     console.log(`start testing ${name} function`)
     await t()
     console.log(`end testing ${name} function`)
@@ -27,9 +27,8 @@ const testing = async (r,m,f,t)=>{
   }
 }
 
-function isTest(r,m) {
-  if(!r) r = require.parent
-  return r.main===m
+function isTest(m) {
+  return m===require.main
 }
 // isTest = (r)=>r.main===module.parent
 

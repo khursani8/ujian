@@ -1,14 +1,14 @@
-const {testing,check} = require('.')
+const {testing,equal} = require('.')
 
 function add(a,b) {
   return a+b
 }
 
 function test() {
-  check(add(1,1),2)
-  check(add(3,4),7)
-  check(add(10000,1),10001)
-  check(add(111,1),111)
+  equal(add(1,1),2)
+  equal(add(3,4),7)
+  equal(add(10000,1),10001)
+  equal(add(111,1),111)
 }
 
-testing(require,add,test)
+testing(module,add,test)
