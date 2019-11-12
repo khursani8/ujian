@@ -28,9 +28,7 @@ const template = (f)=>{
   return `
   ## ${name}
   parameter => (${getArgs(f)})
-  \`\`\`
   ${desc}
-  \`\`\`
   `
 }
 
