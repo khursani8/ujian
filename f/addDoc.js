@@ -1,10 +1,14 @@
 const fs = require('fs')
 
 function getArgs(fn) {
-  return fn.toString()
-    .replace(/((\/\/.*$)|(\/\*[\s\S]*?\*\/)|(\s))/mg,'')
-    .match(/^function\s*[^\(]*\(\s*([^\)]*)\)/m)[1]
-    .split(/,/)
+  try {
+    return fn.toString()
+      .replace(/((\/\/.*$)|(\/\*[\s\S]*?\*\/)|(\s))/mg,'')
+      .match(/function\s*[^\(]*\(\s*([^\)]*)\)/m)[1]
+      .split(/,/)
+  } catch (error) {
+    debugger
+  }
 }
 const descType = (d)=>d.map(el=>{
 if(el.type) return `
