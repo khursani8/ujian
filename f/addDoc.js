@@ -24,7 +24,7 @@ ${el.text}
 // ## ${f.name.charAt(0).toUpperCase() + f.name.slice(1)}
 const template = (f)=>{
   const name = f.name
-  const desc = (f.toString().match(/".+/) || [""])[0].slice(1,-1) || 'no description please write it later'
+  const desc = (f.toString().match(/`([\s\S]*?)`/) || [""])[0].slice(1,-1).trimEnd() || 'no description please write it later'
   return `
   ## ${name}
   parameter => (${getArgs(f)})
@@ -43,7 +43,12 @@ function addDocs(func,file=true) {
 
 if(module===require.main){
   const add = function (left=40,right=12) {
-    "add func between two value and it will boom die"    
+    `
+    add func between two value and it will boom die
+    and I dont asd
+    adsasdasd
+    
+    `
     return left+right
   }
   const example = `

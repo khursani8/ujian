@@ -1,7 +1,9 @@
 const {testing,equal} = require('..')
 
 async function add(a=0,b=0) {
-  "add func between two value and it will boom die"
+  `
+  add func between two value and it will boom die
+  `
   return a+b
 }
 
