@@ -8,7 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/docsG.js"
+      // "program": "${workspaceFolder}/examplesF/add.js"
+      "program": "${workspaceFolder}/f/addDoc.js"
     }
   ]
 }
