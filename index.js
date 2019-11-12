@@ -78,5 +78,6 @@ module.exports = {
   save,
   equal,
   diffString,
-  diff
+  diff,
+  addDocs:require('./f/addDoc')
 }
