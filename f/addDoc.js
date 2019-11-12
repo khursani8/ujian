@@ -24,7 +24,7 @@ ${el.text}
 // ## ${f.name.charAt(0).toUpperCase() + f.name.slice(1)}
 const template = (f)=>{
   const name = f.name
-  const desc = (f.toString().match(/`([\s\S]*?)`/) || [""])[0].slice(1,-1).trimEnd() || 'no description please write it later'
+  const desc = (f.toString().match(/`([\s\S]*?)`\s/) || [""])[0].slice(1,-1).trimEnd() || 'no description please write it later'
   return `
   ## ${name}
   parameter => (${getArgs(f)})
