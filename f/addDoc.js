@@ -10,21 +10,12 @@ function getArgs(fn) {
     debugger
   }
 }
-const descType = (d)=>d.map(el=>{
-if(el.type) return `
-\`\`\`${el.type}
-${el.text}
-\`\`\`
-`
-else return `
-${el.text}
-`
-})
 
 // ## ${f.name.charAt(0).toUpperCase() + f.name.slice(1)}
 const template = (f)=>{
   const name = f.name
   const desc = (f.toString().match(/`([\s\S]*?)`\s/) || [""])[0].slice(1,-1).trimEnd().replace(/\\/gm,'') || '> no description please write it later'
+  if(name==='tqdm')debugger
   return `
   ## ${name}
   parameter => (${getArgs(f)})
@@ -41,19 +32,19 @@ function addDocs(func,file=true) {
 
 if(module===require.main){
   const add = function (left=40,right=12) {
-    `
-    add func between two value and it will boom die
-    and I dont asd
-    adsasdasd
-    
-    `
+  `
+  add func between two value and it will boom die
+  and I dont asd
+  adsasdasd
+  \`\`\`js
+  add(10,12)
+  \`\`\`
+  `
     return left+right
   }
   const example = `
-  add(10,12)
-  => ${add(10,12)}
+  
   `
-  const desc = [{text:"add func between two value"},{text:example,type:'js'}]
   addDocs(add)
 } else {
   module.exports = addDocs
