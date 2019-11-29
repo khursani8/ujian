@@ -79,5 +79,6 @@ module.exports = {
   equal,
   diffString,
   diff,
-  addDocs:require('./f/addDoc')
+  addDocs:require('./f/addDoc'),
+  global: require('./f/global')
 }
