@@ -6,15 +6,13 @@
 
   ## add
   parameter => (a=0,b=0)
-  ```
-  
-  add func between two value and it will boom die
+  > add func between two value and it will boom die
+  ```js
+  add(a,b)
   ```
   
 
   ## sub
   parameter => (a=0,b=0)
-  ```
-  no description please write it later
-  ```
+  > no description please write it later
   

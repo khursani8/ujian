@@ -14,7 +14,7 @@ function getArgs(fn) {
 // ## ${f.name.charAt(0).toUpperCase() + f.name.slice(1)}
 const template = (f)=>{
   const name = f.name
-  const desc = (f.toString().match(/`([\s\S]*?)`\s/) || [""])[0].slice(1,-1).trimEnd().replace(/\\/gm,'') || '> no description please write it later'
+  const desc = (f.toString().match(/`uji([\s\S]*?)an`\s/) || ["",""])[1].slice(1,-1).trim().replace(/\\/gm,'') || '> no description please write it later'
   if(name==='tqdm')debugger
   return `
   ## ${name}
@@ -32,19 +32,16 @@ function addDocs(func,file=true) {
 
 if(module===require.main){
   const add = function (left=40,right=12) {
-  `
+  `uji
   add func between two value and it will boom die
   and I dont asd
   adsasdasd
   \`\`\`js
   add(10,12)
   \`\`\`
-  `
+  an`
     return left+right
   }
-  const example = `
-  
-  `
   addDocs(add)
 } else {
   module.exports = addDocs

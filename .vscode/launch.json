@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       // "program": "${workspaceFolder}/examplesF/add.js"
-      "program": "${workspaceFolder}/f/addDoc.js"
+      "program": "${workspaceFolder}/f/generateDocs.js"
     }
   ]
 }
