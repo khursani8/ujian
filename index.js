@@ -4,6 +4,7 @@ const path = require('path');
 const appDir = path.dirname(require.main.filename);
 const fs = require('fs')
 const _ = require('lodash')
+const {writeFileSync} = require('fs')
 const {diffString,diff} = require('json-diff')
 const date = new Date
 const DATE = `${date.getDate()}:${date.getMonth()+1}-${date.getHours()}:${date.getMinutes()}`
@@ -70,6 +71,15 @@ function equal(a,b,name='') {
   console.log('pass test:' + name)
 }
 
+function logger(fn) {
+  const out = console.log
+  const outName = fn+'-'+(new Date()).getTime()+'.txt'
+  return function log(text) {
+    out(text);
+    writeFileSync('logs/'+outName,text);
+  }
+}
+
 module.exports = {
   isTest,
   strict,
@@ -80,5 +90,6 @@ module.exports = {
   diffString,
   diff,
   addDocs:require('./f/addDoc'),
-  global: require('./f/global')
+  global: require('./f/global'),
+  logger
 }
