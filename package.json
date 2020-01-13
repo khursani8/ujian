@@ -1,6 +1,6 @@
 {
   "name": "ujian",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish"
   },
-  "module":"bundle.js",
+  "module": "bundle.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
