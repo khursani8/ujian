@@ -1,5 +1,5 @@
 function isMain(m) {
-    return m === require.main
+  return m === require.main;
 }
 
-module.exports = isMain
+module.exports = isMain;
