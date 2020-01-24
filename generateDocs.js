@@ -1,18 +1,33 @@
-const addDocs = require("./addDoc");
-const { readFileSync, writeFileSync, readdirSync } = require("fs");
-
+const { addDocs } = require("./index");
+const { mkdirSync, readdirSync } = require("fs");
+try {
+  mkdirSync("docs");
+} catch (error) {}
 //requiring path and fs modules
 const path = require("path");
 //joining path of directory
-const loc = "../examplesF/";
+const loc = "./f/";
 const directoryPath = path.join(__dirname, loc);
 const funcs = [];
 //passsing directoryPath and callback function
 const files = readdirSync(directoryPath);
+const blacklist = ["index", "README", "util"];
 for (const file of files) {
   const name = file.split(".")[0];
-  if (name === "index") continue;
-  funcs.push(require(directoryPath + name));
+  if (blacklist.includes(name)) continue;
+  const f = require(directoryPath + name);
+  if (typeof f === "function") funcs.push(f);
+  else if (typeof f === "object") {
+    // debugger
+    for (const v of Object.values(f)) {
+      if (typeof v === "function") funcs.push(v);
+      else {
+        console.log("skip function:", name);
+      }
+    }
+  } else {
+    console.log("skip function:", name);
+  }
 }
 
 for (const f of funcs) {
