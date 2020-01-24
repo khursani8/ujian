@@ -18,7 +18,7 @@ const DATE = `${date.getDate()}:${date.getMonth()+1}-${date.getHours()}:${date.g
 const testing = async (m,f,t)=>{
   const split = m.filename.split('/')
   const name = split[split.length-1].slice(0,-3)
-  if(isTest(m)){
+  if(isMain(m)){
     console.log(`start testing ${name} function`)
     await t()
     console.log(`end testing ${name} function`)
@@ -28,10 +28,14 @@ const testing = async (m,f,t)=>{
   }
 }
 
-function isTest(m) {
+function isMain(m) {
   return m===require.main
 }
-// isTest = (r)=>r.main===module.parent
+function isTest(m) {
+  console.warn('`isTest` is deprecated and is now named `isMain`.')
+  return isMain(m)
+}
+// isMain = (r)=>r.main===module.parent
 
 
 function save(obj,name,folder='data',ext='json') {
@@ -80,16 +84,22 @@ function logger(fn) {
   }
 }
 
-module.exports = {
-  isTest,
-  strict,
-  testing,
-  ok,
-  save,
-  equal,
-  diffString,
-  diff,
-  addDocs:require('./f/addDoc'),
-  global: require('./f/global'),
-  logger
+if(isMain(module)){
+  console.log(isTest(module)) // check for deprecated message
+  
+} else {
+  module.exports = {
+    isTest,
+    isMain,
+    strict,
+    testing,
+    ok,
+    save,
+    equal,
+    diffString,
+    diff,
+    addDocs:require('./f/addDoc'),
+    global: require('./f/global'),
+    logger
+  }
 }
