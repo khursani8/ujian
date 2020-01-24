@@ -1,22 +1,22 @@
-const addDocs = require('./addDoc')
-const {readFileSync,writeFileSync,readdirSync} = require('fs')
+const addDocs = require("./addDoc");
+const { readFileSync, writeFileSync, readdirSync } = require("fs");
 
 //requiring path and fs modules
-const path = require('path');
-//joining path of directory 
-const loc = '../examplesF/'
+const path = require("path");
+//joining path of directory
+const loc = "../examplesF/";
 const directoryPath = path.join(__dirname, loc);
-const funcs = []
+const funcs = [];
 //passsing directoryPath and callback function
 const files = readdirSync(directoryPath);
 for (const file of files) {
-  const name = file.split('.')[0]
-  if(name==='index') continue
-  funcs.push(require(directoryPath+name))
+  const name = file.split(".")[0];
+  if (name === "index") continue;
+  funcs.push(require(directoryPath + name));
 }
 
 for (const f of funcs) {
-  addDocs(f)
+  addDocs(f);
 }
 
 // const example = `
