@@ -8,7 +8,7 @@
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish"
   },
-  "module": "bundle.js",
+  "module": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
