@@ -1,3 +1,5 @@
+const isMain = require("./isMain");
+
 /**
  * Testing framework
  *

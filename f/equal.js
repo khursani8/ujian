@@ -5,9 +5,11 @@ const isMain = require("./isMain");
 
 function equal(a, b, name = "") {
   `uji
-  	> Check if both value equal or not
-  	a => compare from
-  	b => compare with 
+  > Check if both value equal or not
+  
+  a => compare from
+  
+  b => compare with 
   an`;
   try {
     if (_.isUndefined(a) || _.isUndefined(b)) {

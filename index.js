@@ -12,7 +12,6 @@ const functionsPath = fs.readdirSync(directoryPath);
 const functions = getFunctionsfromPath(functionsPath);
 const toBeExport = {
   ...functions,
-  isMain,
   strict,
   ok
 };
