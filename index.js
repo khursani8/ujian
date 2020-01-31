@@ -1,6 +1,5 @@
 const { strictEqual, ok } = require("assert").strict;
 const strict = (a, b) => strictEqual(a, b);
-const _ = require("lodash");
 //requiring path and fs modules
 const path = require("path");
 const fs = require("fs");
@@ -10,13 +9,26 @@ const loc = "./f/";
 const directoryPath = path.join(__dirname, loc);
 const functionsPath = fs.readdirSync(directoryPath);
 const functions = getFunctionsfromPath(functionsPath);
+
+// backward compatible patch
+function isTest(m) {
+  console.warn("`isTest` is deprecated and is now named `isMain`");
+  return functions["isMain"](m);
+}
+//
+
 const toBeExport = {
   ...functions,
+  isTest,
   strict,
   ok
 };
-// debugger;
-module.exports = toBeExport;
+
+if (functions["isMain"](module)) {
+  debugger;
+} else {
+  module.exports = toBeExport;
+}
 
 function getFunctionsfromPath(functionsPath) {
   return functionsPath.reduce((a, b) => {

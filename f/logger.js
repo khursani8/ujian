@@ -1,6 +1,6 @@
 const { writeFileSync, readFileSync } = require("fs");
 const isMain = require("./isMain");
-const equal = require("./equal");
+const equals = require("./equals");
 const { mkdirSync } = require("fs");
 try {
   mkdirSync("logs");
@@ -33,7 +33,7 @@ if (isMain(module)) {
   const testString = "Hello world";
   log(testString);
   const fileContent = readFileSync("logs/" + log.outName);
-  equal(testString, fileContent);
+  equals(testString, fileContent);
 } else {
   module.exports = logger;
 }

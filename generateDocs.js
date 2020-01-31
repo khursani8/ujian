@@ -32,6 +32,7 @@ for (const file of files) {
 
 for (const f of funcs) {
   addDocs(f);
+  console.log(f.name);
 }
 
 // const example = `

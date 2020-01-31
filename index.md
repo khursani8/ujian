@@ -4,12 +4,16 @@
 # Table of Contents
 1. [addDocs](#addDocs)
 2. [equal](#equal)
-3. [get](#get)
-4. [isMain](#isMain)
-5. [logger](#logger)
-6. [mainWrapper](#mainWrapper)
-7. [save](#save)
-8. [set](#set)
+3. [equals](#equals)
+4. [get](#get)
+5. [isArrayLike](#isArrayLike)
+6. [isMain](#isMain)
+7. [isUndefined](#isUndefined)
+8. [logger](#logger)
+9. [mainWrapper](#mainWrapper)
+10. [pick](#pick)
+11. [save](#save)
+12. [set](#set)
 
 
   ## addDocs
@@ -35,6 +39,11 @@
   b => compare with
   
 
+  ## equals
+  parameter => (a,b)
+  > no description please write it later
+  
+
   ## get
   parameter => (key)
   > Retrieve global variable and print error if key not found
@@ -42,6 +51,17 @@
   key => key name for fetching the value
   ```js
   get(key)
+  ```
+  
+
+  ## isArrayLike
+  parameter => (obj)
+  > check if obj is array like object
+
+  obj => value to check
+  ```js
+  const obj = [1,2,3]
+  isArrayLike(obj) ? 'is array like' : 'not array like'
   ```
   
 
@@ -61,6 +81,17 @@
   ```
   
 
+  ## isUndefined
+  parameter => (val)
+  > check if val is undefined
+
+  val => value to check
+  ```js
+  const val = undefined
+  isUndefined(val) ? 'this is undefined' : 'not undefined'
+  ```
+  
+
   ## logger
   parameter => (fn)
   > output string to stdout and txt file in one function
@@ -75,7 +106,16 @@
 
   ## mainWrapper
   parameter => ()
-  >WIP
+  > WIP
+  
+
+  ## pick
+  parameter => (obj,arr)
+  > Picks the key-value pairs corresponding to the given keys from an object.
+
+  obj => object with the corresponding key-value pairs
+
+  arr => list of key want to retrieve
   
 
   ## save

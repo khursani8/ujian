@@ -3,11 +3,12 @@ const appDir = path.dirname(module.filename); // where code being called
 
 const fs = require("fs");
 const date = new Date();
-const DATE = `${date.getDate()}:${date.getMonth() +
-  1}-${date.getHours()}:${date.getMinutes()}`;
+// const DATE = `${date.getDate()}:${date.getMonth() +
+//   1}-${date.getHours()}:${date.getMinutes()}`;
+const DATE = date.getTime();
 
 const isMain = require("./isMain");
-const equal = require("./equal");
+const equals = require("./equals");
 function save(obj, name = "noName", folder = "data", ext = "json") {
   `uji
 	> Save variable to a file for reproduce testing and debugging
@@ -43,7 +44,7 @@ if (isMain(module)) {
   objToSave = { key: "value" };
   const path = save(objToSave);
   const content = JSON.parse(fs.readFileSync(path));
-  equal(objToSave, content);
+  equals(objToSave, content);
 } else {
   module.exports = save;
 }
