@@ -2,31 +2,22 @@
 
 
 # Table of Contents
-1. [add](#add)
-2. [addDocs](#addDocs)
-3. [equal](#equal)
-4. [get](#get)
-5. [isMain](#isMain)
-6. [logger](#logger)
-7. [mainWrapper](#mainWrapper)
-8. [save](#save)
-9. [set](#set)
+1. [addDocs](#addDocs)
+2. [equal](#equal)
+3. [get](#get)
+4. [isMain](#isMain)
+5. [logger](#logger)
+6. [mainWrapper](#mainWrapper)
+7. [save](#save)
+8. [set](#set)
 
-
-  ## add
-  parameter => (left=40,right=12)
-  add func between two value and it will boom die
-  and I dont asd
-  adsasdasd
-  ```js
-  add(10,12)
-  ```
-  
 
   ## addDocs
   parameter => (func,file=true)
   > Generate docs in function like this
+
   func => function to be pass
+  
   file => true for generate file else return markdown generated
   ```js
   addDocs(func)
@@ -47,6 +38,8 @@
   ## get
   parameter => (key)
   > Retrieve global variable and print error if key not found
+
+  key => key name for fetching the value
   ```js
   get(key)
   ```
@@ -54,34 +47,68 @@
 
   ## isMain
   parameter => (m)
-  > no description please write it later
+  > Check if run directly from console or being require/import
+
+  m => javascript <em>module</em>
+
+  ```js
+  const {isMain} = require('ujian')
+  if(isMain(module)){
+    console.log('this code will run if someone execute directly')
+  } else {
+    console.log("being require from somewhere else")
+  }
+  ```
   
 
   ## logger
   parameter => (fn)
   > output string to stdout and txt file in one function
+
   fn => filename of the log
+  ```js
+  const title = 'main'
+  const log = logger(title)
+  log("Hello world") // will write to stdout and file
+  ```
   
 
   ## mainWrapper
   parameter => ()
-  > no description please write it later
+  >WIP
   
 
   ## save
   parameter => (obj,name="noName",folder="data",ext="json")
   > Save variable to a file for reproduce testing and debugging
-	obj => variable to store
-	name => filename for that variable
-	folder => folder name for saved variable
-	ext => extension for that variable, json by default
+  
+  obj => variable to store
+  
+  name => filename for that variable
+  
+  folder => folder name for saved variable
+  
+  ext => extension for that variable, json by default
+  
+  ```js
+  const objToSave = {a:'a',b:'b'}
+  save(objToSave,'objToSave')
+  ```
   
 
   ## set
   parameter => (key,value,force=false)
   > Set global variable
   > [WARNING] Only store something that is static and not dynamically change in program
+  
+  key => name of the key for set variable
+
+  value => variable to be set
+
+  force => overwrite current global variable
+  
   ```js
-  set(key,value,force=false)
+  const value = 'randomValue'
+  set('key',value,force=false)
   ```
   

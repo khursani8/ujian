@@ -32,7 +32,9 @@ const template = f => {
 function addDocs(func, file = true) {
   `uji
   > Generate docs in function like this
+
   func => function to be pass
+  
   file => true for generate file else return markdown generated
   \`\`\`js
   addDocs(func)

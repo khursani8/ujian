@@ -1,13 +1,9 @@
 const isMain = require("./isMain");
 
-/**
- * Testing framework
- *
- * @param {*} r require object
- * @param {*} f what function to test
- * @param {*} t test function on how to test
- */
 const mainWrapper = async (m, f, t) => {
+  `uji
+  > WIP
+  an`;
   const split = m.filename.split("/");
   const name = split[split.length - 1].slice(0, -3);
   if (isMain(m)) {

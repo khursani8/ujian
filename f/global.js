@@ -5,6 +5,8 @@ const isMain = require("./isMain");
 function get(key) {
   `uji
   > Retrieve global variable and print error if key not found
+
+  key => key name for fetching the value
   \`\`\`js
   get(key)
   \`\`\`
@@ -21,8 +23,16 @@ function set(key, value, force = false) {
   `uji
   > Set global variable
   > [WARNING] Only store something that is static and not dynamically change in program
+  
+  key => name of the key for set variable
+
+  value => variable to be set
+
+  force => overwrite current global variable
+  
   \`\`\`js
-  set(key,value,force=false)
+  const value = 'randomValue'
+  set('key',value,force=false)
   \`\`\`
   an`;
   const keys = Object.keys(obj);

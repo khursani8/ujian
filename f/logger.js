@@ -9,7 +9,14 @@ try {
 function logger(fn) {
   `uji
   > output string to stdout and txt file in one function
+
   fn => filename of the log
+  \`\`\`js
+  const title = 'main'
+  const log = logger(title)
+  log("Hello world") // will write to stdout and file
+  \`\`\`
+  
   an`;
   const out = console.log;
   const outName = fn + "-" + new Date().getTime() + ".txt";

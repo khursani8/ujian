@@ -11,11 +11,20 @@ const equal = require("./equal");
 function save(obj, name = "noName", folder = "data", ext = "json") {
   `uji
 	> Save variable to a file for reproduce testing and debugging
-	obj => variable to store
-	name => filename for that variable
-	folder => folder name for saved variable
-	ext => extension for that variable, json by default
-	an`;
+  
+  obj => variable to store
+  
+  name => filename for that variable
+  
+  folder => folder name for saved variable
+  
+  ext => extension for that variable, json by default
+  
+  \`\`\`js
+  const objToSave = {a:'a',b:'b'}
+  save(objToSave,'objToSave')
+  \`\`\`
+  an`;
   const dir = `${appDir}/${folder}/${DATE}/`;
   if (!fs.existsSync(dir)) {
     if (!fs.existsSync(`${appDir}/${folder}/`)) {
