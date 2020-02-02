@@ -8,6 +8,12 @@ _   _   ___ _____  ___   _   _
 
 ```
 
+## Description
+
+> Library for making dev environment better
+
+> Zero Dependency
+
 ## Setup
 
 ```sh
