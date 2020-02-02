@@ -1,5 +1,8 @@
 const isMain = require("./isMain");
 function equals(a, b) {
+  `uji
+  > Check if value equal or not
+  an`;
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date)
     return a.getTime() === b.getTime();

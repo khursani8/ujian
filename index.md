@@ -3,17 +3,16 @@
 
 # Table of Contents
 1. [addDocs](#addDocs)
-2. [equal](#equal)
-3. [equals](#equals)
-4. [get](#get)
-5. [isArrayLike](#isArrayLike)
-6. [isMain](#isMain)
-7. [isUndefined](#isUndefined)
-8. [logger](#logger)
-9. [mainWrapper](#mainWrapper)
-10. [pick](#pick)
-11. [save](#save)
-12. [set](#set)
+2. [equals](#equals)
+3. [get](#get)
+4. [isArrayLike](#isArrayLike)
+5. [isMain](#isMain)
+6. [isUndefined](#isUndefined)
+7. [logger](#logger)
+8. [mainWrapper](#mainWrapper)
+9. [pick](#pick)
+10. [save](#save)
+11. [set](#set)
 
 
   ## addDocs
@@ -28,15 +27,6 @@
   addDocs(func, true) // generate file
   addDocs(func, false) // return markdown text
   ```
-  
-
-  ## equal
-  parameter => (a,b,name="")
-  > Check if both value equal or not
-  
-  a => compare from
-  
-  b => compare with
   
 
   ## equals
