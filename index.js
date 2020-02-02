@@ -17,6 +17,13 @@ function isTest(m) {
 }
 //
 
+// feature flag
+const notReady = ["mainWrapper"];
+for (const k of notReady) {
+  delete functions[k];
+}
+//
+
 const toBeExport = {
   ...functions,
   isTest,

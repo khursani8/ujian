@@ -2,11 +2,8 @@ const { writeFileSync, readFileSync } = require("fs");
 const isMain = require("./isMain");
 const equals = require("./equals");
 const { mkdirSync } = require("fs");
-try {
-  mkdirSync("logs");
-} catch (error) {}
 
-function logger(fn) {
+function logger(fn, folder = "logs") {
   `uji
   > output string to stdout and txt file in one function
 
@@ -21,8 +18,11 @@ function logger(fn) {
   const out = console.log;
   const outName = fn + "-" + new Date().getTime() + ".txt";
   const log = function(text) {
+    try {
+      mkdirSync(folder);
+    } catch (error) {}
     out(text);
-    writeFileSync("logs/" + outName, text);
+    writeFileSync(`${folder}/` + outName, text);
   };
   log.outName = outName;
   return log;
