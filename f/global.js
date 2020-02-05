@@ -40,14 +40,26 @@ function set(key, value, force = false) {
     console.log(key + " already exist, please use force=true to overwrite");
     return;
   }
+
   obj[key] = value; // only set when key not exist or force
   console.log(`done set ${key}\ttypeof ${typeof value}`);
 }
 
 if (isMain(module)) {
-  set("testKey", "testValue");
-  const v = get("testKey");
-  if (v !== "testValue") throw new Error("Not equal");
+  const language = {
+    set current(name) { // make sure set will not pollute setter
+      this.log.push(name);
+      set("testKey", "testValue");
+      const v = get("testKey");
+      if (v !== "testValue") throw new Error("Not equal");
+    },
+    log: []
+  }
+  language.current = 'EN';
+  language.current = 'FA';
+
+  console.log(language.log);
+  // expected output: Array ["EN", "FA"]
 } else {
   module.exports = global;
 }
